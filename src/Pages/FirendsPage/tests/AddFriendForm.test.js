@@ -39,4 +39,17 @@ describe('Add Friend Form', () => {
         })
         expect(root.findAllByProps({ id: 'error' }).length).toBe(0)
     })
+
+    it('call onAdd props', () => {
+        const onAdd = jest.fn()
+        const root = getRoot({ onAdd })
+
+        const inputBox = root.findByType('input')
+        const addButton = root.findByType('button')
+        act(() => {
+            inputBox.props.onChange({ target: { value: 'john' } })
+        })
+        act(() => addButton.props.onClick())
+        expect(onAdd).toBeCalled()
+    })
 })
