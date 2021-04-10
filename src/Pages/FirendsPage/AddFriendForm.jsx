@@ -13,6 +13,7 @@ function AddFriendForm(props) {
             onAdd({...formState})
         }
     }
+    
     const upateFormState = (obj) => setFormState({ ...formState, ...obj })
 
     const onChange = (e) => {
