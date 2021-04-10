@@ -1,12 +1,13 @@
 import FirendsPage from './Pages/FirendsPage/FirendsPage';
 
 import './App.css';
+import { Container } from '@material-ui/core';
 
 function App() {
   return (
-    <div className="App">
+    <Container style={{backgroundColor:'#eee',height:'100vh'}} maxWidth="xl">
        <FirendsPage/>
-    </div>
+    </Container>
   );
 }
 
