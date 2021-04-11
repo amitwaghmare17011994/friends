@@ -23,10 +23,12 @@ function FriendsChatList({ selctedFriendForChat, friends = [] }) {
     return (
         <Paper className={classes.root}>
             {friends?.map((friendItem) =>
-                <FirendChatListItem
-                    selctedFriendForChat={selctedFriendForChat}
-                    friendItem={friendItem} key={friendItem.id}
-                    onSelect={(selectedFriendItem) => setGlobalState({ selctedFriendForChat: selectedFriendItem })} />
+                <div id={'friend_' + friendItem.id}>
+                    <FirendChatListItem
+                        selctedFriendForChat={selctedFriendForChat}
+                        friendItem={friendItem} key={friendItem.id}
+                        onSelect={(selectedFriendItem) => setGlobalState({ selctedFriendForChat: selectedFriendItem })} />
+                </div>
             )}
         </Paper>
 

@@ -16,6 +16,10 @@ function ChatPage() {
         if (selectedFriend) {
             setGlobalState({ selctedFriendForChat: selectedFriend })
             history.push({ pathname: `/chat/${selectedFriend.id}` })
+            const ele = document.getElementById('friend_' + selectedFriend.id)
+            if (ele) {
+                ele.scrollIntoView()
+            }
         }
     }, [])
 
