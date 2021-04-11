@@ -14,8 +14,10 @@ function ChatPage() {
     useEffect(() => {
         setFriendList(FIRENDS)
         const selectedFriend = params.friendId ? FIRENDS.find((i) => i.id === parseInt(params.friendId)) : FIRENDS[0]
-        setGlobalState({ selctedFriendForChat: selectedFriend })
-        history.push({ pathname: `/chat/${selectedFriend.id}` })
+        if (selectedFriend) {
+            setGlobalState({ selctedFriendForChat: selectedFriend })
+            history.push({ pathname: `/chat/${selectedFriend.id}` })
+        }
     }, [])
 
     useEffect(() => {

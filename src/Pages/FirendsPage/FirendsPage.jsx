@@ -8,7 +8,7 @@ function FirendsPage() {
     return (
         <div>
             <div style={{ padding: 40 }}>
-                <AddFriendForm onAdd={(friend) => { setFriendList([...friendList, friend]) }} />
+                <AddFriendForm onAdd={(friend) => { setFriendList([...friendList, { ...friend, id: friendList.length + 1 }]) }} />
                 <div style={{ marginTop: 20 }}>
                     <FriendList friends={friendList} />
                 </div>
