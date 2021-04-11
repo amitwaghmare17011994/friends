@@ -14,7 +14,7 @@ const Routes = () => <Router>
         <Route path="/" exact>
             <FirendsPage />
         </Route>
-        <Route path="/chat">
+        <Route path="/chat/:friendId?">
             <ChatPage />
         </Route>
     </Switch>
