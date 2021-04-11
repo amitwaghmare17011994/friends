@@ -7,7 +7,7 @@ const useStyles = makeStyles(() => createStyles({
         padding: 20,
         height: '70vh',
         maxHeight: '70vh',
-        overflowY: 'scroll'
+        overflowY: 'auto'
     },
     button: {
         marginLeft: 20
@@ -23,7 +23,9 @@ function FriendList(props) {
                 friends.map((friendItem, i) => {
                     return <FirendListItem key={`${friendItem.fullName}${i}`} friendItem={friendItem} />
                 })
+
             }
+            { !friends?.length && <center>No Friends Found</center>}
 
         </Paper>
     )
