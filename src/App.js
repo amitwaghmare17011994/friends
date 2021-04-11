@@ -1,21 +1,18 @@
-import React, { useEffect } from 'react'
-import FirendsPage from './Pages/FirendsPage/FirendsPage';
-import io from 'socket.io-client';
+import React from 'react'
 
 import { Container } from '@material-ui/core';
 import './App.css';
-const ENDPOINT = 'http://localhost:3001'
-const SOCKET_OPTIONS = { transports: ['websocket', 'polling', 'flashsocket'] }
+import Routes from './Routes';
+import StateProvider from './StateProvider';
 
 function App() {
-  useEffect(() => {
-    const socket = io(ENDPOINT, SOCKET_OPTIONS);
 
-  }, [])
 
   return (
     <Container style={{ backgroundColor: '#eee', height: '100vh' }} maxWidth="xl">
-      <FirendsPage />
+      <StateProvider>
+        <Routes />
+      </StateProvider>
     </Container>
   );
 }
