@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Close from '@material-ui/icons/Close';
 
 function FirendListItem({ friendItem }) {
     const [toggle, setToggle] = useState(false)
@@ -7,7 +8,11 @@ function FirendListItem({ friendItem }) {
             <span style={{ flex: 1 }}>
                 {friendItem.fullName}
             </span>
-            <span>X</span>
+            <div style={{ cursor: 'pointer' }} onClick={(e) => {
+                e.stopPropagation()
+            }}>
+                <Close />
+            </div>
         </div>
     )
 }

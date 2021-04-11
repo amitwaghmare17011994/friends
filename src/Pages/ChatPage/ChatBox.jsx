@@ -1,24 +1,37 @@
 import React from 'react'
-import { Input, Paper } from '@material-ui/core'
+import { Avatar, Input, Paper } from '@material-ui/core'
 import { makeStyles, createStyles } from '@material-ui/core/styles';
-import { GLOBAL_PAPER_HEIGHT } from '../../constants';
+import TrheeDotMenu from '../../components/ThreeDotMenu';
 
+
+const options = [
+    'Block',
+];
 
 const useStyles = makeStyles(() => createStyles({
     root: {
-        height: GLOBAL_PAPER_HEIGHT,
-        maxHeight: GLOBAL_PAPER_HEIGHT,
+        height: '100%',
+        maxHeight: '100%',
         overflowY: 'auto',
         backgroundColor: '#f6f6f6',
         display: 'flex',
-        flexDirection: 'column'
+        flexDirection: 'column',
+        overflowX: 'hidden'
+
     },
     input: {
         width: '100%',
-        height: '100%'
+        height: '100%',
+        marginLeft: 10,
+        overflowX: 'hidden',
+        maxWidth: '90%'
     },
     button: {
         marginLeft: 20
+    },
+    chatBoxItem: { width: '100%', height: 60 },
+    chatBody: {
+        flex: 1
     }
 }));
 
@@ -27,14 +40,19 @@ function ChatBox({ selctedFriendForChat }) {
 
     return (
         <Paper className={classes.root}>
-            <Paper style={{ width: '100%', height: 50 }}>
-                {selctedFriendForChat?.name}
+            <Paper className={classes.chatBoxItem}>
+                <div style={{ marginLeft: 10, display: 'flex', alignItems: 'center', marginTop: 5 }}>
+                    <Avatar />
+                    <span style={{ marginLeft: 10, flex: 1 }}>
+                        {selctedFriendForChat?.name}
+                    </span>
+                    <TrheeDotMenu options={options} />
+                </div>
             </Paper>
-            <div style={{ flex: 1 }}>
-
+            <div className={classes.chatBody}>
             </div>
-            <Paper style={{ width: '100%', height: 60 }}>
-                <Input placeholder={"Type your message..."} className={classes.input} />
+            <Paper className={classes.chatBoxItem}>
+                <Input disableUnderline placeholder={"Type your message..."} className={classes.input} />
             </Paper>
 
         </Paper>

@@ -1,7 +1,6 @@
 import React from 'react'
 import { Avatar, Paper } from '@material-ui/core'
 import { makeStyles, createStyles } from '@material-ui/core/styles';
-import { useGlobalState } from '../../StateContext';
 
 const useStyles = makeStyles(() => createStyles({
     friendItem: {
