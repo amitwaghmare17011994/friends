@@ -8,12 +8,11 @@ import FriendsChatList from './FriendsChatList';
 
 function ChatPage() {
     const [globalState, setGlobalState] = useGlobalState()
-    const [friendList, setFriendList] = useState([])
+    const friendList = globalState?.friendList || []
     const history = useHistory()
     const params = useParams()
     useEffect(() => {
-        setFriendList(FIRENDS)
-        const selectedFriend = params.friendId ? FIRENDS.find((i) => i.id === parseInt(params.friendId)) : FIRENDS[0]
+        const selectedFriend = params.friendId ? friendList.find((i) => i.id === parseInt(params.friendId)) : friendList[0]
         if (selectedFriend) {
             setGlobalState({ selctedFriendForChat: selectedFriend })
             history.push({ pathname: `/chat/${selectedFriend.id}` })

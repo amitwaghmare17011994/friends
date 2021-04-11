@@ -25,7 +25,7 @@ function FirendChatListItem({ friendItem, onSelect, selctedFriendForChat }) {
         <Paper onClick={() => onSelect(friendItem)} className={className} >
             <Avatar />
             <span style={{ marginLeft: 10 }}>
-                {friendItem.name}
+                {friendItem.name || friendItem.fullName}
             </span>
         </Paper>
     )

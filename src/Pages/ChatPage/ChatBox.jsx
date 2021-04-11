@@ -44,7 +44,7 @@ function ChatBox({ selctedFriendForChat }) {
                 <div style={{ marginLeft: 10, display: 'flex', alignItems: 'center', marginTop: 5 }}>
                     <Avatar />
                     <span style={{ marginLeft: 10, flex: 1 }}>
-                        {selctedFriendForChat?.name}
+                        {selctedFriendForChat?.name || selctedFriendForChat?.fullName}
                     </span>
                     <TrheeDotMenu options={options} />
                 </div>
